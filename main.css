@@ -9,12 +9,12 @@
 .calc-wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 100vh;
+    height: 56rem;
     width: 32rem;
-    margin: 0 auto;
+    margin: 1rem auto;
     background-color: rgb(55, 55, 55);
     color: white;
-    border-radius: 4rem;
+    border-radius: 3.8rem;
     grid-gap: .65rem;
     padding: 1rem;
     padding-bottom: 2rem;

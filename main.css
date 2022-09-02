@@ -12,11 +12,13 @@
     height: 100vh;
     width: 32rem;
     margin: 0 auto;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(55, 55, 55);
     color: white;
     border-radius: 4rem;
     grid-gap: .65rem;
     padding: 1rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
 }
 .screen{
     grid-row: span 2;
@@ -25,7 +27,9 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding: 1rem;
+    margin: 1.3rem;
     height: 16rem;
+    background-color: black;
 }
 
 .item{
@@ -41,13 +45,14 @@
     margin: auto auto;
     font-size: 2.9rem;
     cursor: pointer;
+    box-shadow: .05rem .05rem .15rem .05rem rgba(0, 0, 0, .7);
 }
 
 .item:hover{
     opacity: 50%;
 }
 
-.calc-wrapper .item:nth-child(18){
+.calc-wrapper .item:nth-child(20){
     grid-column: span 2;
     border-radius: 5rem;
     width: 100%;

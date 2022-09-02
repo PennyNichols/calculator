@@ -1,5 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .calc-wrapper{
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    
+    height: 100vh;
+    width: 32rem;
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 4rem;
+    grid-gap: .65rem;
+    padding: 1rem;
+}
+.screen{
+    grid-row: span 2;
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+    height: 16rem;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgb(78, 78, 78);
+    width: 6.4rem;
+    height: 6.4rem;
+    transition: all .3s;
+    margin: auto auto;
+    font-size: 2.9rem;
+    cursor: pointer;
+}
+
+.item:hover{
+    opacity: 50%;
+}
+
+.calc-wrapper .item:nth-child(18){
+    grid-column: span 2;
+    border-radius: 5rem;
+    width: 100%;
+}
+
+.calc-wrapper .item:nth-child(2),
+.calc-wrapper .item:nth-child(3),
+.calc-wrapper .item:nth-child(4){
+    background-color: rgb(136, 105, 153);
+}
+
+.calc-wrapper .item:nth-child(5),
+.calc-wrapper .item:nth-child(9),
+.calc-wrapper .item:nth-child(13),
+.calc-wrapper .item:nth-child(17){
+    background-color: rgb(105, 144, 153);
 }

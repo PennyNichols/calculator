@@ -18,3 +18,38 @@ let operator = '';
 let firstNum = '';
 let sameOperator = false;
 
+controls.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('button')) return;
+
+    let currentEntry = currentDisplay.innerHTML;
+    let value = event.target.innerHTML;
+
+    if (event.target.classList.contains('clear')) {
+        operator = '';
+        firstNum = '';
+        currentDisplay.innerHTML = '0';
+        prevDisplay.innerHTML = '';
+    }
+
+    if (event.target.classList.contains('decimal')) {
+        if (!currentEntry.includes('.')) {
+            currentDisplay.innerHTML += '.';
+        }
+    }
+
+    if(event.target.classList.contains('number')) {
+        if (currentEntry.length < 8)
+            if(currentEntry !== '0') {
+                currentDisplay.innerHTML += value;
+            } else if (value !== '0') {
+                currentDisplay.innerHTML = value;
+            }
+    }
+
+    if(event.target.classList.contains('plus-minus')) {
+        if (currentEntry !== '0' && currentEntry.length < 9)
+            currentDisplay.innerHTML = '-' + currentEntry;
+        else if (currentEntry[0] == '-')
+            currentDisplay.innerHTML = currentEntry.substring(1); 
+    }
+});

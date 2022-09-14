@@ -47,9 +47,9 @@ controls.addEventListener('click', (e) => {
     // plus-minus button toggles between positive and negative for currentDisplay
     // plus-minus button does nothing if the value of currentDisplay is zero
     if(e.target.classList.contains('plus-minus')) {
-        if (currentEntry !== '0' && currentEntry.length < 9)
-            currentDisplay.innerHTML = '-' + currentEntry;
-        else if (currentEntry[0] == '-')
+        if (currentEntry[0] == '-')
             currentDisplay.innerHTML = currentEntry.substring(1); 
+        else if (currentEntry !== '0' && currentEntry.length < 9)
+            currentDisplay.innerHTML = '-' + currentEntry;
     }
 });

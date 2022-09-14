@@ -63,8 +63,9 @@ controls.addEventListener("click", (e) => {
 			currentDisplay.innerHTML = "-" + currentEntry;
 		}
 	}
-
+	
 	// operator buttons send currentDisplay value to prevDisplay followed by the operator that was pushed
+	// operator buttons trigger the calculation of prevDisplay, operator, and currentDisplay only if a number is already in prevDisplay.
 	if (e.target.classList.contains("operator")) {
 		if (!existingOperator) {
 			if (prevDisplay.innerHTML && operator) {
@@ -81,5 +82,4 @@ controls.addEventListener("click", (e) => {
 		existingOperator = false;
 	}
 
-	// operator buttons trigger the calculation of prevDisplay, operator, and currentDisplay only if a number is already in prevDisplay.
 });

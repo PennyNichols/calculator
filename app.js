@@ -1,6 +1,4 @@
 // functionality needed:
-// percent button does nothing, I'd like it to multiply prevDisplay value by 100 and add a percent symbol
-// equal button assigns the result to prevDisplay and removes the operator
 
 const currentDisplay = document.querySelector(".current");
 const prevDisplay = document.querySelector(".previous");
@@ -63,10 +61,11 @@ controls.addEventListener("click", (e) => {
 			currentDisplay.innerHTML = "-" + currentEntry;
 		}
 	}
-	
-	// operator buttons send currentDisplay value to prevDisplay followed by the operator that was pushed
+
 	// operator buttons trigger the calculation of prevDisplay, operator, and currentDisplay only if a number is already in prevDisplay.
+	// operator buttons send currentDisplay value to prevDisplay followed by the operator that was pushed
 	if (e.target.classList.contains("operator")) {
+
 		if (!existingOperator) {
 			if (prevDisplay.innerHTML && operator) {
 				firstNum = calculate();
@@ -80,6 +79,31 @@ controls.addEventListener("click", (e) => {
 		existingOperator = true;
 	} else {
 		existingOperator = false;
+	}
+
+	// equal button assigns the result to prevDisplay and removes the operator
+	if(e.target.classList.contains('equal')) {
+		firstNum = calculate();
+		operator = '';
+		prevDisplay.innerHTML = firstNum;
+		currentDisplay.innerHTML = '0';
+		existingOperator = false;
+	}
+
+	// percent button does nothing, I'd like it to multiply prevDisplay value by 100 and add a percent symbol
+	if(e.target.classList.contains('percent')) {
+		let result = prevDisplay.innerHTML;
+
+		if (result.includes('%')) {
+			firstNum /= 100;
+			prevDisplay.innerHTML = firstNum;
+		} else if (!prevDisplay.innerHTML == '') {
+			firstNum *= 100;
+			prevDisplay.innerHTML = firstNum + '%';
+			
+		} else if(prevDisplay.innerHTML == '') {
+			return;
+		}
 	}
 
 });

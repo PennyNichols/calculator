@@ -10,7 +10,7 @@ let existingOperator = false;
 function calculate() {
 	switch (operator) {
 		case "÷":
-			return Number(firstNum) / Number(currentDisplay.innerHTML);
+			return (Number(firstNum) / Number(currentDisplay.innerHTML)).toFixed(3);
 		case "×":
 			return Number(firstNum) * Number(currentDisplay.innerHTML);
 		case "-":

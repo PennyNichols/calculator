@@ -65,7 +65,6 @@ controls.addEventListener("click", (e) => {
 	// operator buttons trigger the calculation of prevDisplay, operator, and currentDisplay only if a number is already in prevDisplay.
 	// operator buttons send currentDisplay value to prevDisplay followed by the operator that was pushed
 	if (e.target.classList.contains("operator")) {
-
 		if (!existingOperator) {
 			if (prevDisplay.innerHTML && operator) {
 				firstNum = calculate();
@@ -82,28 +81,26 @@ controls.addEventListener("click", (e) => {
 	}
 
 	// equal button assigns the result to prevDisplay and removes the operator
-	if(e.target.classList.contains('equal')) {
+	if (e.target.classList.contains("equal")) {
 		firstNum = calculate();
-		operator = '';
+		operator = "";
 		prevDisplay.innerHTML = firstNum;
-		currentDisplay.innerHTML = '0';
+		currentDisplay.innerHTML = "0";
 		existingOperator = false;
 	}
 
 	// percent button does nothing, I'd like it to multiply prevDisplay value by 100 and add a percent symbol
-	if(e.target.classList.contains('percent')) {
+	if (e.target.classList.contains("percent")) {
 		let result = prevDisplay.innerHTML;
 
-		if (result.includes('%')) {
+		if (result.includes("%")) {
 			firstNum /= 100;
 			prevDisplay.innerHTML = firstNum;
-		} else if (!prevDisplay.innerHTML == '') {
+		} else if (!prevDisplay.innerHTML == "") {
 			firstNum *= 100;
-			prevDisplay.innerHTML = firstNum + '%';
-			
-		} else if(prevDisplay.innerHTML == '') {
+			prevDisplay.innerHTML = firstNum + "%";
+		} else if (prevDisplay.innerHTML == "") {
 			return;
 		}
 	}
-
 });
